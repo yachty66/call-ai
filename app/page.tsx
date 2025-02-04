@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Check, Menu, Phone } from "lucide-react";
+import { Check, Menu, Phone, Volume2, VolumeX } from "lucide-react";
+import { useState } from "react";
 
 export default function Page() {
   return (
@@ -45,12 +48,12 @@ export default function Page() {
         <section className="pt-48 md:pt-56 pb-20 md:pb-32 relative">
           <div className="container mx-auto px-6 text-center">
             <div className="flex items-center justify-center mb-12">
-              <div className="flex items-center space-x-4 bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-full px-7 py-3.5">
+              <div className="flex items-center space-x-4 bg-white/[0.02] backdrop-blur-sm border border-white/[0.05] rounded-full px-7 py-3.5 hover:bg-white/[0.03] transition-all duration-300 shadow-lg">
                 <span className="text-gray-400 text-base">Trusted by</span>
-                <div className="bg-[#ff6b01] w-6 h-6 flex items-center justify-center rounded">
-                  <span className="text-white font-bold text-sm">500+</span>
+                <div className="bg-gradient-to-r from-[#b624ff] to-[#c93eff] w-6 h-6 flex items-center justify-center rounded shadow-inner">
+                  <span className="text-white font-bold text-sm">500</span>
                 </div>
-                <span className="text-[#ff6b01] font-medium text-base">
+                <span className="bg-gradient-to-r from-[#b624ff] to-[#c93eff] text-transparent bg-clip-text font-medium text-base">
                   Gyms
                 </span>
               </div>
@@ -106,14 +109,27 @@ export default function Page() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] opacity-30">
                 <div className="absolute inset-0 rounded-full bg-[#b624ff] blur-[150px]" />
               </div>
-              <div className="relative">
-                <Image
-                  src="/placeholder.svg?height=800&width=1400"
-                  alt="GymCall AI Dashboard"
-                  width={1400}
-                  height={800}
-                  className="rounded-3xl border border-white/[0.05]"
-                />
+              <div className="relative group">
+                <video
+                  autoPlay
+                  loop
+                  playsInline
+                  className="w-full rounded-3xl border border-white/[0.05] shadow-2xl"
+                >
+                  <source src="/video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <button
+                  onClick={() => {
+                    const video = document.querySelector("video");
+                    if (video) {
+                      video.muted = !video.muted;
+                    }
+                  }}
+                  className="absolute bottom-4 right-4 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors opacity-0 group-hover:opacity-100"
+                >
+                  <Volume2 className="w-6 h-6 text-white" />
+                </button>
               </div>
             </div>
           </div>
