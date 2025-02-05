@@ -74,10 +74,12 @@ export default function FitnessSFDemo() {
                 GymCall AI™
               </span>
             </Link>
-            <Button variant="ghost" className="flex items-center space-x-2">
-              <ArrowLeft className="w-5 h-5" />
-              <span>Back to Home</span>
-            </Button>
+            <Link href="/">
+              <Button variant="ghost" className="flex items-center space-x-2">
+                <ArrowLeft className="w-5 h-5" />
+                <span>Back to Home</span>
+              </Button>
+            </Link>
           </nav>
         </div>
       </header>
@@ -103,10 +105,11 @@ export default function FitnessSFDemo() {
                 <div className="relative aspect-video">
                   <video
                     className="w-full rounded-xl border border-white/[0.05] shadow-2xl"
-                    poster="/demo-thumbnail.jpg"
                     controls
+                    playsInline
                   >
-                    <source src="/demos/fitness-sf-call.mp4" type="video/mp4" />
+                    <source src="/fitnesssf-demo.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
                   </video>
                 </div>
                 <p className="text-gray-400 mt-4 text-sm">
